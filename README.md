@@ -405,13 +405,6 @@ void assert_failed(uint8_t *file, uint32_t line)
 
 ## Output screen shots of proteus  :
 
-![image](https://github.com/user-attachments/assets/33ebda76-c758-4462-8abb-537403f7db25)
-
- 
- ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
-
-![PMC EX 4](https://github.com/user-attachments/assets/0e1c4b7e-678d-45c4-88d1-dbcaa8167b37)
-
 
  
 ## Result :
