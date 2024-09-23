@@ -149,6 +149,7 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
 
 ## STM 32 CUBE PROGRAM :
 ```
+/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -170,6 +171,26 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
 #include "main.h"
 #include "lcd.h"
 
+Lcd_PortType Ports[] = {GPIOA,GPIOA,GPIOA,GPIOA};
+Lcd_PinType Pins[] = {GPIO_PIN_3,GPIO_PIN_2,GPIO_PIN_1,GPIO_PIN_0};
+Lcd_HandleTypeDef lcd;
+
+void lcd_display()
+{
+	Lcd_cursor(&lcd,0,1);
+	Lcd_string(&lcd,"MOONESH\n");
+
+	Lcd_cursor(&lcd,1,1);
+	Lcd_string(&lcd,"212223230126\n");
+
+	for(int x=0;x<100;x++)
+	{
+		Lcd_cursor(&lcd,2,1);
+		Lcd_int(&lcd,x);
+		HAL_Delay(200);
+	}
+	Lcd_clear(&lcd);
+}
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -213,51 +234,19 @@ static void MX_GPIO_Init(void);
   */
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
 
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
   SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  /* USER CODE BEGIN 2 */
-  Lcd_PortType ports[] = { GPIOA, GPIOA, GPIOA, GPIOA };
-     Lcd_PinType pins[] = {GPIO_PIN_3, GPIO_PIN_2, GPIO_PIN_1, GPIO_PIN_0};
-     Lcd_HandleTypeDef lcd;
-     lcd = Lcd_create(ports, pins, GPIOB, GPIO_PIN_0, GPIOB, GPIO_PIN_1, LCD_4_BIT_MODE);
-     Lcd_cursor(&lcd, 0,1);
-     Lcd_string(&lcd, "kaviya");
 
 
-
-    while (1)
-    {
-      	  for ( int x = 1; x <= 200 ; x++ )
-  	   	 	  {
-  	   		  Lcd_cursor(&lcd, 1,7);
-  	   	 	  Lcd_int(&lcd, x);
-  	   	 	  HAL_Delay (1000);
-  	   	 	  }
-      }
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+  lcd = Lcd_create(Ports,Pins,GPIOB,GPIO_PIN_0,GPIOB,GPIO_PIN_1,LCD_4_BIT_MODE);
+  while (1)
+  {
+    /* USER CODE END WHILE */
+	lcd_display();
+    /* USER CODE BEGIN 3 */
+  }
   /* USER CODE END 3 */
 }
 
@@ -370,7 +359,6 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
 ```
 
 ## Output screen shots of proteus  :
