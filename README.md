@@ -115,7 +115,7 @@ Jump to second line, position 2
 
  2. click on FILE, click on new stm 32 project
    
- 3. select the target to be programmed  as shown below and click on next 
+ 3. select the target to be programmed  and click on next 
 
  4.select the program name 
 
