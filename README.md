@@ -173,8 +173,8 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 
 
 ## STM 32 CUBE PROGRAM :
-/* 
-USER CODE BEGIN Header */
+```
+/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -383,9 +383,8 @@ void assert_failed(uint8_t *file, uint32_t line)
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
-#endif /* USE_FULL_ASSERT
-*/
-
+#endif /* USE_FULL_ASSERT*/
+```
 ## Output screen shots of proteus  :
 
 ![WhatsApp Image 2024-09-25 at 10 29 44_cc99d620](https://github.com/user-attachments/assets/c1f665da-6215-4607-a977-50a0c74ff6eb)
